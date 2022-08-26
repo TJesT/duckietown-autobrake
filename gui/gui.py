@@ -40,10 +40,8 @@ class GUI:
         self.joystick = Joystick(self)
 
         self.display = Display(self)
-        self.display.add_imshow(camera_read)
-        self.display.add_imshow(camera_read_hsv)
 
-        cv.createButton('autopilot', self.on_check, 1)
+        # cv.createButton('autopilot', self.on_check, 1)
 
     def render(self):
         for elem in self.to_render:

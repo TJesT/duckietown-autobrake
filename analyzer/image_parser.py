@@ -3,15 +3,14 @@ import numpy as np
 import cv2 as cv
 from typing import List, Any, Tuple
 
+
 class ImageParser(ABC):
-    @staticmethod
-    def get_images(img: np.ndarray) -> List[np.ndarray]:
+    def get_images(self, img: np.ndarray) -> List[np.ndarray]:
         ...
 
 
 class PIDImageParser(ImageParser):
-    @staticmethod
-    def get_images(img):
+    def get_images(self, img):
         # RGB_MIN_THRESH = (161, 154, 157)
         RGB_MIN_THRESH = (140, 140, 140)
         RGB_MAX_THRESH = (255, 255, 255)
@@ -33,4 +32,3 @@ class PIDImageParser(ImageParser):
         canny_img[245:480, 360:640] = cv.cvtColor(canny, cv.COLOR_GRAY2RGB)
 
         return mask_img, canny_img
-
